@@ -1,31 +1,49 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 
 function Navbar() {
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const [dark, setDark] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleTheme = () => {
+    setDark(!dark);
+    document.body.setAttribute("data-theme", dark ? "light" : "dark");
+  };
 
   return (
-    <nav className="navbar custom-nav">
+    <nav>
       <div className="container">
 
-        {/* LEFT */}
+        {/* LOGO */}
+        <div className="logo">Portfolio</div>
 
-        {/* CENTER */}
-        <ul className="navbar-nav">
-          <li><Link to="/" className="nav-link">HOME</Link></li>
-          <li><Link to="/about" className="nav-link">ABOUT</Link></li>
-          <li><Link to="/skills" className="nav-link">SKILLS</Link></li>
-          <li><Link to="/projects" className="nav-link">PROJECTS</Link></li>
-          <li><Link to="/education" className="nav-link">EDUCATION</Link></li>
-          <li><Link to="/contact" className="nav-link">CONTACT</Link></li>
-        </ul>
+        {/* LINKS */}
+        <div className={`links ${menuOpen ? "active" : ""}`}>
 
-        {/* RIGHT */}
-        <button onClick={toggleTheme} class="float-end" >
-      {darkMode ? "☀️" : "🌙"}
-    </button>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/skills" className="nav-link">Skills</Link>
+          <Link to="/projects" className="nav-link">Projects</Link>
+          <Link to="/education" className="nav-link">Education</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
+
+          {/* THEME BUTTON */}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {dark ? <FaSun /> : <FaMoon />}
+          </button>
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <FaBars />
+        </button>
 
       </div>
     </nav>

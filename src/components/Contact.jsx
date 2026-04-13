@@ -1,52 +1,125 @@
 import React from "react";
 
-const Contact = () => {
+import { FaGithub, FaLinkedin, FaTwitter, FaPaperPlane } from "react-icons/fa";
+
+function Contact() {
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      e.target,
+      "YOUR_PUBLIC_KEY"
+    ).then(
+      () => {
+        alert("Message sent successfully ✅");
+      },
+      () => {
+        alert("Failed ❌");
+      }
+    );
+
+    e.target.reset();
+  };
+
   return (
-    <section className="contact-section">
-      <div className="container">
+    <div className="container py-5 text-center">
 
-        {/* Heading */}
-        <p className="contact-number">06</p>
-        <h2 className="contact-title">Let's Connect</h2>
+      <p className="text-info fw-bold">05 / CONTACT</p>
 
-        <p className="contact-desc">
-          Got a project in mind or just want to chat? I'd love to hear from you.
-        </p>
+      <h1 className="fw-bold mb-4">
+        Let’s <span className="text-info">Connect</span>
+      </h1>
 
-        {/* Cards */}
-        <div className="contact-grid">
+      <p className="text-secondary mb-5">
+        Have a project in mind? I'm always excited to explore new
+        opportunities and collaborate with creative minds.
+      </p>
 
-          {/* Email */}
-          <div className="contact-card">
-            <div className="contact-icon"></div>
-            <h5>Email</h5>
-            <p>arpitapriya2004@gmail.com</p>
-          </div>
+      {/* FORM */}
+      <form onSubmit={sendEmail} className="mx-auto" style={{ maxWidth: "600px" }}>
 
-          {/* GitHub */}
-          <div className="contact-card">
-            <div className="contact-icon"></div>
-            <h5>GitHub</h5>
-           <p> <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-              Arpita Priya
-            </a></p>
-          </div>
+        {/* Email */}
+        <div className="mb-4 text-start">
+          <label className="form-label fw-semibold">Email</label>
+          <input
+            type="email"
+            name="user_email"
+            className="form-control"
+            placeholder="your@email.com"
+            required
+            style={{
+              background: "transparent",
+              border: "1px solid rgba(0,212,255,0.4)",
+              color: "var(--text)",   // ✅ FIXED
+              padding: "12px"
+            }}
+          />
+        </div>
 
-          {/* LinkedIn */}
-          <div className="contact-card">
-            <div className="contact-icon"></div>
-            <h5>LinkedIn</h5>
-           <p> <a href="https://www.linkedin.com/in/arpita-priya-b06b4424b/" target="_blank" rel="noopener noreferrer">
-              Arpita Priya
-            </a></p>
-            
-          </div>
+        {/* Message */}
+        <div className="mb-4 text-start">
+          <label className="form-label fw-semibold">Message</label>
+          <textarea
+            name="message"
+            className="form-control"
+            rows="4"
+            placeholder="Tell me about your project..."
+            required
+            style={{
+              background: "transparent",
+              border: "1px solid rgba(0,212,255,0.4)",
+              color: "var(--text)",   // ✅ FIXED
+              padding: "12px"
+            }}
+          ></textarea>
+        </div>
+
+        {/* BUTTON */}
+        <button
+          type="submit"
+          className="btn fw-semibold px-4 py-2 mb-4"
+          style={{
+            background: "linear-gradient(90deg, #00d4ff, #ff6b35)",
+            color: "black",
+            border: "none"
+          }}
+        >
+          Send Message <FaPaperPlane />
+        </button>
+
+        {/* SOCIAL ICONS */}
+        <div className="d-flex justify-content-center gap-4">
+
+          {[ 
+            { icon: <FaGithub />, color: "#00d4ff" },
+            { icon: <FaLinkedin />, color: "#ff6b35" },
+            { icon: <FaTwitter />, color: "#b366ff" }
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="d-flex align-items-center justify-content-center"
+              style={{
+                width: "55px",
+                height: "55px",
+                borderRadius: "50%",
+                border: `2px solid ${item.color}`,
+                color: item.color,
+                fontSize: "20px",
+                cursor: "pointer"
+              }}
+            >
+              {item.icon}
+            </div>
+          ))}
 
         </div>
 
-      </div>
-    </section>
+      </form>
+    </div>
   );
-};
+}
 
 export default Contact;

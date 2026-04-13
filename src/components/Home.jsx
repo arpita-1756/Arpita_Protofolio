@@ -1,24 +1,28 @@
 const Home = () => {
   return (
-    <section id="home" className="home-section">
-      <div className="container hero-wrapper">
-
-        <div className="hero-content">
-          <p className="hero-small">WELCOME TO MY PORTFOLIO</p>
-
-          <h1 className="hero-title">
-            Arpita <br /> Priya
-          </h1>
-
-          <p className="hero-desc">
-            Aspiring Developer & Designer crafting digital experiences that matter.
-          </p>
-
-        
-        </div>
-
-      </div>
-    </section>
+    <>
+   
+   <section className="hero" id="home">
+    <h1 className="anim-fade-up">Welcome to my<br/><span className="gradient-text">Creative Space</span></h1>
+    <p className="hero-subtitle anim-fade-up anim-delay-1" id="heroTagline">Creative Developer &amp; Designer</p>
+    <div className="cta-buttons anim-fade-up anim-delay-2">
+     <a href="#P
+     rojects" className="btn btn-primary"> View Work</a> 
+     <a href="#contact" className="btn btn-secondary"> Get In Touch</a>
+    </div>
+    <div className="scroll-indicator anim-fade-up anim-delay-3">
+     <span>Scroll to explore</span>
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="12 5 12 19"></polyline> <polyline points="19 12 12 19 5 12"></polyline>
+     </svg>
+    </div>
+   </section>
+   <div className="tech-marquee">
+    <div className="marquee-track">
+     <span className="marquee-item">REACT ✦ NEXT.JS ✦ TYPESCRIPT ✦ TAILWIND ✦ FIGMA ✦ FRAMER ✦ THREE.JS ✦ NODE.JS ✦</span> <span className="marquee-item">REACT ✦ NEXT.JS ✦ TYPESCRIPT ✦ TAILWIND ✦ FIGMA ✦ FRAMER ✦ THREE.JS ✦ NODE.JS ✦</span>
+    </div>
+   </div>
+    </>
   );
 };
 

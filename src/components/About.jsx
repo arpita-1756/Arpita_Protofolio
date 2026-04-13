@@ -1,35 +1,46 @@
-import React from "react";
 import myphoto from "../assets/myphoto.png";
-const About = () => {
+import React from "react";
+
+function About() {
   return (
-    <section className="about-section">
-      <div className="container about-wrapper">
+    <div className="container py-5">
 
-        {/* LEFT */}
-        <div className="about-left">
-          <p className="about-number">01</p>
+      {/* Section Number */}
+      <p className="text-secondary mb-2">01</p>
 
-          <h2 className="about-title">About Me</h2>
+      {/* Heading */}
+      <h1 className="fw-bold mb-4">About Me</h1>
 
-          <p className="about-text">
+      {/* Content Row */}
+      <div className="row align-items-center">
+
+        {/* LEFT SIDE */}
+        <div className="col-md-7">
+          <p className="text-secondary fs-5">
             I’m an aspiring full-stack developer with strong foundation in Java,
-            DSA, and Web Development. I focus on building clean and efficient applications.
+            DSA, and Web Development. I focus on building clean and efficient
+            applications.
           </p>
 
-          <p className="about-text">
+          <p className="text-secondary fs-5">
             I enjoy learning new technologies, solving problems, and creating
             user-friendly digital experiences.
           </p>
-
-          
         </div>
 
-        {/* RIGHT */}
-        <img src={myphoto} alt="About Me" />
+        {/* RIGHT SIDE */}
+        <div className="col-md-5 text-center mt-4 mt-md-0">
+          <img
+            src={myphoto}
+            alt="profile"
+            className="img-fluid rounded"
+            style={{ maxWidth: "220px" }}
+          />
+        </div>
 
       </div>
-    </section>
+    </div>
   );
-};
+}
 
 export default About;

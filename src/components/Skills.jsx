@@ -1,58 +1,57 @@
-import React from "react";
-import { FaCode, FaHeart } from "react-icons/fa";
 
-const Skills = () => {
+import React, { useEffect, useState } from "react";
+
+function Skills() {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setAnimate(true), 300); // delay animation
+  }, []);
+
+  const skills = [
+    { name: "Java ", value: 95 },
+    { name: "HTML/CSS/JavaScript", value: 90 },
+    { name: "DSA", value: 88 },
+    { name: "MySQL", value: 85 },
+    { name: "Spring Boot", value: 82 },
+  ];
+
   return (
-    <section className="skills-section">
-      <div className="container">
+    <div className="container py-5">
 
-        {/* Heading */}
-        <p className="skills-number">02</p>
-        <h2 className="skills-title">Skills</h2>
+      {/* Section Title */}
+      <p className="text-info fw-bold">03 / SKILLS</p>
 
-        {/* Technical Skills */}
-        <div className="skills-block">
-          <h4 className="skills-subtitle">
-            <FaCode className="me-2" /> Technical
-          </h4>
+      <h1 className="fw-bold mb-5">
+        My <span className="text-info">Toolkit</span>
+      </h1>
 
-          <div className="skills-list">
-            <span>Java</span>
-            <span>DSA</span>
-            <span>OOP</span>
-            <span>Spring</span>
-            <span>Hibernate</span>
-            <span>JDBC</span>
-            <span>Servlet</span>
-            <span>HTML / CSS</span>
-            <span>JavaScript</span>
-            <span>Bootstrap</span>
-            <span>MySQL</span>
-            <span>Oracle</span>
-            <span>Git</span>
-            <span>GitHub</span>
+      {/* Skills List */}
+      {skills.map((skill, index) => (
+        <div key={index} className="mb-4">
+
+          {/* Top Row */}
+          <div className="d-flex justify-content-between">
+            <span className="fw-semibold">{skill.name}</span>
+            <span className="text-info fw-bold">{skill.value}%</span>
           </div>
-        </div>
 
-        {/* Soft Skills */}
-        <div className="skills-block mt-4">
-          <h4 className="skills-subtitle">
-            <FaHeart className="me-2" /> Soft Skills
-          </h4>
-
-          <div className="skills-list">
-            <span>Problem Solving</span>
-            <span>Communication</span>
-            <span>Teamwork</span>
-            <span>Leadership</span>
-            <span>Time Management</span>
-            <span>Critical Thinking</span>
+          {/* Progress Bar */}
+          <div className="progress mt-2" style={{ height: "8px" }}>
+            <div
+              className="progress-bar bg-info"
+              role="progressbar"
+              style={{
+                width: animate ? `${skill.value}%` : "0%",
+                transition: "width 1.5s ease"
+              }}
+            ></div>
           </div>
-        </div>
 
-      </div>
-    </section>
+        </div>
+      ))}
+    </div>
   );
-};
+}
 
 export default Skills;
