@@ -1,7 +1,7 @@
 import React from "react";
 
-import { FaPalette, FaShoppingCart, FaLeaf } from "react-icons/fa";
-
+import {  FaShoppingCart} from "react-icons/fa";
+import { TiWeatherCloudy } from "react-icons/ti";
 
 
 function Projects() {
@@ -9,22 +9,17 @@ function Projects() {
   const projects = [
     {
       title: "Weather website",
-      desc: "Analytics platform with real-time data visualization, interactive charts, and intuitive workflows for seamless data exploration.",
-      tech: ["React", "D3.js", "Node.js"],
-      icon: <FaPalette />
+      desc: "A modern and responsive weather application that provides real-time weather updates for any city using the OpenWeather API.",
+      tech: ["Html", "CSS", "JavaScript"],
+      icon: <TiWeatherCloudy />
     },
     {
       title: "Neural Knowledge",
-      desc: "Luxury fashion e-commerce platform with immersive product experiences, smooth animations, and frictionless checkout flow.",
+      desc: "An AI-powered knowledge management system that helps users organize, search, and retrieve information efficiently from pdf.",
       tech: ["Spring", "Security", "Thymeleaf"],
-      icon: <FaShoppingCart />
+       
     },
-    {
-      title: "GreenPulse",
-      desc: "Sustainability tracking app that helps users monitor carbon footprint, eco habits, and environmental impact.",
-      tech: ["React", "Firebase", "API"],
-      icon: <FaLeaf />
-    }
+
   ];
 
   return (

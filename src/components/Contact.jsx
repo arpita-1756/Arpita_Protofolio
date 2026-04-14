@@ -1,28 +1,7 @@
 import React from "react";
-
-import { FaGithub, FaLinkedin, FaTwitter, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 function Contact() {
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
-      e.target,
-      "YOUR_PUBLIC_KEY"
-    ).then(
-      () => {
-        alert("Message sent successfully ✅");
-      },
-      () => {
-        alert("Failed ❌");
-      }
-    );
-
-    e.target.reset();
-  };
 
   return (
     <div className="container py-5 text-center">
@@ -38,68 +17,31 @@ function Contact() {
         opportunities and collaborate with creative minds.
       </p>
 
-      {/* FORM */}
-      <form onSubmit={sendEmail} className="mx-auto" style={{ maxWidth: "600px" }}>
+      {/* SOCIAL ICONS */}
+      <div className="d-flex justify-content-center gap-4">
 
-        {/* Email */}
-        <div className="mb-4 text-start">
-          <label className="form-label fw-semibold">Email</label>
-          <input
-            type="email"
-            name="user_email"
-            className="form-control"
-            placeholder="your@email.com"
-            required
-            style={{
-              background: "transparent",
-              border: "1px solid rgba(0,212,255,0.4)",
-              color: "var(--text)",   // ✅ FIXED
-              padding: "12px"
-            }}
-          />
-        </div>
+        {[ 
+          { 
+            icon: <FaGithub />, 
+            color: "#00d4ff",
+            link: "https://github.com/arpita-1756/"
+          },
+          { 
+            icon: <FaLinkedin />, 
+            color: "#ff6b35",
+            link: "https://www.linkedin.com/in/arpita-priya-b06b4424b/"
+          },
+         
+        ].map((item, index) => (
 
-        {/* Message */}
-        <div className="mb-4 text-start">
-          <label className="form-label fw-semibold">Message</label>
-          <textarea
-            name="message"
-            className="form-control"
-            rows="4"
-            placeholder="Tell me about your project..."
-            required
-            style={{
-              background: "transparent",
-              border: "1px solid rgba(0,212,255,0.4)",
-              color: "var(--text)",   // ✅ FIXED
-              padding: "12px"
-            }}
-          ></textarea>
-        </div>
-
-        {/* BUTTON */}
-        <button
-          type="submit"
-          className="btn fw-semibold px-4 py-2 mb-4"
-          style={{
-            background: "linear-gradient(90deg, #00d4ff, #ff6b35)",
-            color: "black",
-            border: "none"
-          }}
-        >
-          Send Message <FaPaperPlane />
-        </button>
-
-        {/* SOCIAL ICONS */}
-        <div className="d-flex justify-content-center gap-4">
-
-          {[ 
-            { icon: <FaGithub />, color: "#00d4ff" },
-            { icon: <FaLinkedin />, color: "#ff6b35" },
-            { icon: <FaTwitter />, color: "#b366ff" }
-          ].map((item, index) => (
+          <a
+            key={index}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
             <div
-              key={index}
               className="d-flex align-items-center justify-content-center"
               style={{
                 width: "55px",
@@ -113,11 +55,12 @@ function Contact() {
             >
               {item.icon}
             </div>
-          ))}
+          </a>
 
-        </div>
+        ))}
 
-      </form>
+      </div>
+
     </div>
   );
 }
