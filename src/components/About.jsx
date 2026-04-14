@@ -5,11 +5,9 @@ function About() {
   return (
     <div className="container py-5">
 
-      {/* Section Number */}
-      <p className="text-secondary mb-2">01</p>
-
+      
       {/* Heading */}
-      <h1 className="fw-bold mb-4">About Me</h1>
+      <p className="text-info fw-bold">01 / ABOUT ME</p>
 
       {/* Content Row */}
       <div className="row align-items-center">

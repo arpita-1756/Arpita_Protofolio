@@ -20,7 +20,7 @@ function Skills() {
     <div className="container py-5">
 
       {/* Section Title */}
-      <p className="text-info fw-bold">03 / SKILLS</p>
+      <p className="text-info fw-bold">02 / SKILLS</p>
 
       <h1 className="fw-bold mb-5">
         My <span className="text-info">Toolkit</span>

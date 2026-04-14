@@ -6,9 +6,8 @@ const Home = () => {
     <h1 className="anim-fade-up">Welcome to my<br/><span className="gradient-text">Creative Space</span></h1>
     <p className="hero-subtitle anim-fade-up anim-delay-1" id="heroTagline">Creative Developer &amp; Designer</p>
     <div className="cta-buttons anim-fade-up anim-delay-2">
-     <a href="#P
-     rojects" className="btn btn-primary"> View Work</a> 
-     <a href="#contact" className="btn btn-secondary"> Get In Touch</a>
+     <a href="/Projects" className="btn btn-primary"> View Work</a> 
+     <a href="/Contact" className="btn btn-secondary"> Get In Touch</a>
     </div>
     <div className="scroll-indicator anim-fade-up anim-delay-3">
      <span>Scroll to explore</span>

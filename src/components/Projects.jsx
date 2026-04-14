@@ -1,51 +1,78 @@
 import React from "react";
 
-const Projects = () => {
+import { FaPalette, FaShoppingCart, FaLeaf } from "react-icons/fa";
+
+
+
+function Projects() {
+
+  const projects = [
+    {
+      title: "Weather website",
+      desc: "Analytics platform with real-time data visualization, interactive charts, and intuitive workflows for seamless data exploration.",
+      tech: ["React", "D3.js", "Node.js"],
+      icon: <FaPalette />
+    },
+    {
+      title: "Neural Knowledge",
+      desc: "Luxury fashion e-commerce platform with immersive product experiences, smooth animations, and frictionless checkout flow.",
+      tech: ["Spring", "Security", "Thymeleaf"],
+      icon: <FaShoppingCart />
+    },
+    {
+      title: "GreenPulse",
+      desc: "Sustainability tracking app that helps users monitor carbon footprint, eco habits, and environmental impact.",
+      tech: ["React", "Firebase", "API"],
+      icon: <FaLeaf />
+    }
+  ];
+
   return (
-    <section className="projects-section">
-      <div className="container">
+    <section>
+      <p className="text-info fw-bold">03 / PROJECTS</p>
 
-        <h2 className="projects-title">Projects</h2>
+      {/* Title */}
+      <h2 className="section-title">
+        Featured <span className="gradient-text">Projects</span>
+      </h2>
 
-        <div className="projects-grid">
+      <div className="row g-4">
 
-          {/* Project 1 */}
-          <div className="project-card">
-            <div className="project-top orange">
-              📝
+        {projects.map((project, index) => (
+          <div className="col-md-6" key={index}>
+
+            <div className="card">
+
+              {/* Icon */}
+              <div className="card-icon">
+                {project.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="skill-name">{project.title}</h3>
+
+              {/* Description */}
+              <p className="text-secondary">
+                {project.desc}
+              </p>
+
+              {/* Tags */}
+              <div className="tech-tags">
+                {project.tech.map((t, i) => (
+                  <span key={i} className="tech-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
             </div>
 
-            <h4>To-Do App</h4>
-            <p>
-              Desktop-based Java GUI application with CRUD operations using File I/O.
-            </p>
-
-            <div className="project-tags">
-              <span>Java</span>
-              <span>OOP</span>
-              <span>File I/O</span>
-            </div>
           </div>
-
-          {/* Project 2 */}
-          <div className="project-card">
-            <div className="project-top purple">
-              💻
-            </div>
-
-            <h4>Future Project</h4>
-            <p>
-              Thinking  about my next project 
-            </p>
-
-           
-          </div>
-
-        </div>
+        ))}
 
       </div>
     </section>
   );
-};
+}
 
 export default Projects;
